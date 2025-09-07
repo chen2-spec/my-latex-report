@@ -1,0 +1,218 @@
+
+\documentclass[UTF8]{ctexart}
+
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{cases}
+\usepackage{cite}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\geometry{a4paper}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+
+
+\title{{\Huge 系统基础开发工具{\large\linebreak\\}}{\Large 实验一\linebreak\linebreak}}
+%please write your name, Student #, and Class # in Authors, student ID, and class # respectively
+\author{\\姓\ 名:陈\ 佳\ 玲\\
+学\ 号: 23100021002\\
+专\ 业:23级环境工程\\
+}
+\date{\today}
+\maketitle
+\newpage
+
+
+%\title{基础物理实验报告}
+%\author{\LaTeX\ by\ 驰雨Chiyuru}
+%\date{\today}
+\pagenumbering{arabic}
+
+\begin{document}
+
+%\fancyhead[L]{陈佳玲}
+\fancyhead[C]{系统基础开发工具}
+\fancyfoot[C]{\thepage}
+
+\maketitle
+\tableofcontents
+\newpage
+
+\section{实验目的}
+ 1. 学习版本控制(Git)
+通过课堂学习和课下探索练习，能够掌握基本的Git指令，并且能够对git产生新的认识。
+\\      
+2. 学习 LaTeX 文档编辑
+学习LaTeX 文档编辑器，练习相关的代码编写,掌握LaTeX的排版方法，能够学以致用，用LaTeX来生成自己的实验报告。
+
+
+\section{实验内容}
+
+\subsection{Git}
+
+\subsubsection{创建本地库并初始化}
+(1）创建本地库
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{picture/mkdir.png}
+    \caption{创建仓库}
+\end{figure}
+
+（2）进入目录并初始化仓库
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{picture/init.png}
+    \caption{初始化仓库}
+\end{figure}
+
+\subsubsection{创建新文件}
+查看工作区和暂存区的状态,输出结果为状态报告。
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{picture/echo.png}
+    \caption{创建新文件并添加内容}
+\end{figure}
+
+\subsubsection{检查当前文件的状态}
+查看工作区和暂存区的状态,输出结果为状态报告。
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{picture/git status.png}
+    \caption{查看文件状态}
+\end{figure}
+
+\subsubsection{将文件添加到暂存区}
+(1）将工作区的文件更改添加到暂存区，准备下次提交
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{picture/git add ..png}
+    \caption{添加文件到暂存区}
+\end{figure}
+（2）再次检查状态
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{picture/git status2.png}
+    \caption{验证暂存区添加结果}
+\end{figure}
+
+\subsubsection{提交更新到本地仓库}
+将暂存区的文件提交到版本历史中：
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{picture/git commit .png}%保证图片占满页面宽度，且一致
+    \caption{提交更改}
+\end{figure}
+
+\subsubsection{查看提交历史}
+验证提交已成功创建,显示提交历史，包括作者、日期和提交消息
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{picture/git log.png}%保证图片占满页面宽度，且一致
+    \caption{验证提交}
+\end{figure}
+
+\subsubsection{创建分支}
+使用指令“git branch feature-branch”创建分支，分支是指向特定提交的轻量级指针；创建分支不会复制文件，只是创建一个新指针;使用分支可以在不影响主线的情况下开发新功能。
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{picture/创建分支.png}%保证图片占满页面宽度，且一致
+    \caption{创建分支}
+\end{figure}
+
+\subsubsection{切换分支}
+使用指令“git switch feature-branch”切换分支，更新工作目录中的文件
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{picture/切换分支.png}%保证图片占满页面宽度，且一致
+    \caption{切换分支}
+\end{figure}
+
+\subsubsection{合并分支}
+使用git branch 指令查看分支之后，使用指令git merge feature-branch合并分支
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{picture/合并分支.png}%保证图片占满页面宽度，且一致
+    \caption{合并分支}
+\end{figure}
+
+\subsubsection{删除文件}
+使用git rm newrep.txt指令删除文件，并使用git status查看删除结果。
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{picture/删除文件.png}
+    \caption{删除文件}
+\end{figure}
+
+
+
+
+\subsection{LaTeX}
+
+
+\subsubsection{文档的结构}
+（1）文档的类型定义：\verb|\documentclass{}| 
+是LaTeX 文档的第一个命令。它控制了文档的页边距、字体大小等。文档的类型有article (文章）
+report（报告）, book（书籍）, letter（信函）, beamer（幻灯片）
+
+（2）标记文档正文内容的开始和结束:
+\verb|\begin{document} |和 \verb|\end{document}|
+
+\subsubsection{文章的标题、作者、日期}
+（1）标题\verb|\title{系统基础开发工具}|
+\\（2）作者\verb|\author{陈佳玲}|
+\\（3）日期\verb|\date{\today}|：能够生成当天的日期
+\\（5）标题栏\verb|\maketitle|
+
+\subsubsection{文章结构划分}
+章节标题\verb|\section{}|，\verb| \subsection{}|，\verb|\subsubsection{}|
+
+\subsubsection{文字样式}
+(1）粗体\verb|\textbf{关键点}|
+这是\textbf{关键点}
+（2）斜体\verb|\textit{特别注意}|
+需要\textit{特别注意}
+
+
+\subsubsection{文本内部换行}
+在段落内部进行手动换行使用\verb|\\|或\verb| \newline|
+
+
+\subsubsection{数学公式}
+在文本行中插入简洁的数学公式或符号，使用\verb|$...$|,例如\verb|$y=2x+1$|。若要凸显数学公式则使用\verb|\[ ... \]|，例如\verb|\[ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \]|,\[ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \]。，很多数学公式的实现还需要引入amsmath这个宏包，实现方法是在导言区添加\verb|\usepackage{amsmath}|
+
+\subsubsection{创建有序表}
+使用enumerate生成带自动编号的列表，用于需要表示顺序的步骤或条目。如\\ \verb|\begin{enumerate}|
+   \\ \verb|\item 第一步|
+  \\ \verb|\item 第二步| 
+\\ \verb|\end{enumerate}||
+生成结果\\
+\begin{enumerate}
+    \item 第一步
+    \item 第二步
+\end{enumerate}
+
+\subsubsection{注释添加}
+使用\verb|%|在代码中添加不会被编译和输出的注释,如输出\verb|这是一个普通句子。 % 这是关于上一句的注释|,结果为这是一个普通句子。 % 这是关于上一句的注释。
+
+\subsubsection{特殊符号输入}
+使用反斜杠\verb|\| 转义输出许多特殊字符，如\verb|#|等保留为命令符号。
+
+
+\subsubsection{目录生成}
+在LaTeX 中为了自动生成目录，我们需要在正文区添加\verb|\tableofcontents|，通常，为了让目
+录和后面的正文内容不在同一页，我们可以加上\verb|\newpage|来实现另起一页
+
+\section{心得体会}
+通过学习Git，我掌握了版本控制的核心概念与基础操作。实践中的问题排查深化了我对工作流原理的理解，这项技能不仅提升了我的代码管理效率，更培养了我严谨协作的习惯。LaTeX的学习让我体验到“内容与格式分离”的专业排版。从文档结构构建到数学公式、表格的精准处理，我深刻感受到其自动化排版与交叉引用的强大优势。将它应用于实验报告撰写后，我彻底解放了格式调整的负担，能更专注于内容本身，使得文档格式更加美观标准。
+
+
+
+\section{实验代码查看链接}
+本次报告相关练习、报告和代码均可以在https://github.com/chen2-spec/my-latex-report.git查看
+
+
+
+\end{document}
